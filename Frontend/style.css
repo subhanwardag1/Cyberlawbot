@@ -103,15 +103,17 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     flex-shrink: 0;
     color: var(--green-deep);
 }
 
-.logo-icon svg {
-    width: 34px;
-    height: 34px;
+.logo-icon img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
 }
 
 .header-text {
@@ -323,9 +325,11 @@ button {
     margin-bottom: clamp(10px, 2vh, 18px);
 }
 
-.welcome-icon svg {
-    width: clamp(44px, 7vh, 64px);
-    height: clamp(44px, 7vh, 64px);
+.welcome-icon img {
+    width: clamp(76px, 12vh, 112px);
+    height: clamp(76px, 12vh, 112px);
+    object-fit: contain;
+    display: block;
 }
 
 .welcome-screen h2 {
@@ -662,13 +666,17 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--green-soft);
-    font-size: 1.05rem;
-    box-shadow: var(--shadow-sm);
+}
+
+/* The logo PNG carries its own pale circle, so the avatar needs no fill/shadow */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .bubble {
@@ -1418,13 +1426,13 @@ body.modal-open {
     }
 
     .logo-icon {
-        width: 34px;
-        height: 34px;
+        width: 38px;
+        height: 38px;
     }
 
-    .logo-icon svg {
-        width: 28px;
-        height: 28px;
+    .logo-icon img {
+        width: 38px;
+        height: 38px;
     }
 
     .new-chat-btn span {

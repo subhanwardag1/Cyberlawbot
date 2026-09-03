@@ -286,10 +286,10 @@ function addMessage(type, content, meta = {}) {
     bubble.className = "bubble";
 
     if (type === "ai") {
-        // Avatar
+        // Avatar (brand logo)
         const avatar = document.createElement("div");
         avatar.className = "avatar";
-        avatar.textContent = "⚖️";
+        avatar.innerHTML = '<img src="/static/logo.png" alt="">';
         msg.appendChild(avatar);
 
         // Content
@@ -954,7 +954,7 @@ function addTypingIndicator() {
 
     const avatar = document.createElement("div");
     avatar.className = "avatar";
-    avatar.textContent = "⚖️";
+    avatar.innerHTML = '<img src="/static/logo.png" alt="">';
 
     const bubble = document.createElement("div");
     bubble.className = "bubble typing-bubble";
