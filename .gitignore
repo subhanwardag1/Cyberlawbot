@@ -7,3 +7,10 @@ feedback.jsonl
 # Transient debug screenshots (local only, not part of the app)
 UI_changed.png
 cb_initial_load.png
+
+# IDE metadata
+.qoder/
+
+# Local-only helper scripts and submission artifacts (never published)
+_*.py
+CyberLaw_Bot_Project_Report.docx
