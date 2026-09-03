@@ -29,8 +29,8 @@ for _stream in (sys.stdout, sys.stderr):
         pass
 
 # ── Path setup ──
-SCRIPT_DIR = Path(__file__).parent.resolve()
-FYP_DIR = SCRIPT_DIR.parent  # d:\Final_Year_Project
+SCRIPT_DIR = Path(__file__).parent.resolve()   # the Backend folder
+FYP_DIR = SCRIPT_DIR.parent                    # the project root
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from rag_pipeline import query_and_answer, GEMINI_API_KEY
@@ -201,18 +201,25 @@ async def submit_feedback(request: FeedbackRequest):
 
 
 # ── Serve PDF files for reference links ──
-PDF_DIR = SCRIPT_DIR  # d:\Final_Year_Project\Backend (PDFs are here)
+PDF_DIR = SCRIPT_DIR  # the four statute PDFs live next to this file
 
 
 @app.get("/files/data/{filename:path}")
 async def serve_pdf(filename: str):
-    """Serve PDF files so users can view cited sources."""
-    file_path = PDF_DIR / filename
-    if file_path.exists() and file_path.suffix.lower() == ".pdf":
+    """Serve PDF files so users can view cited sources.
+
+    A {filename:path} converter accepts slashes, so the joined path is resolved and
+    must stay inside PDF_DIR. Anything that escapes it (for example ../../x.pdf) is
+    rejected with 400 instead of being read from disk.
+    """
+    file_path = (PDF_DIR / filename).resolve()
+    if not file_path.is_relative_to(PDF_DIR):
+        raise HTTPException(status_code=400, detail="Invalid file path")
+    if file_path.is_file() and file_path.suffix.lower() == ".pdf":
         return FileResponse(
             file_path,
             media_type="application/pdf",
-            filename=filename,
+            filename=file_path.name,
         )
     raise HTTPException(status_code=404, detail="File not found")
 
