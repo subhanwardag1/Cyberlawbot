@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CyberLaw Bot — Pakistan's AI-powered Legal Assistant for Criminal Law, PECA, PPC & CrPC">
+    <meta name="theme-color" content="#f6f8f7">
+    <title>CyberLaw Bot</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css?v=5">
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ─── Header ─── -->
+        <header id="header">
+            <div class="header-left">
+                <div class="logo-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                        <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                        <path d="M7 21h10"></path>
+                        <path d="M12 3v18"></path>
+                        <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1><span class="brand-green">CyberLaw</span> <span class="brand-dark">Bot</span></h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="lang-switch" role="group" aria-label="Answer language">
+                    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+                    <button type="button" class="lang-btn" data-lang="ur" aria-pressed="false">اردو</button>
+                </div>
+                <button id="aboutBtn" class="icon-btn" title="About &amp; how it works" data-modal="about"
+                    aria-label="About and how it works">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </button>
+                <button id="newChatBtn" class="new-chat-btn" title="New conversation">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>New Chat</span>
+                </button>
+                <div class="status-badge" id="statusBadge">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Online</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ─── Chat area ─── -->
+        <main id="chatArea" class="chat-area">
+
+            <!-- Welcome screen -->
+            <div id="welcomeScreen" class="welcome-screen">
+                <div class="welcome-glow"></div>
+                <div class="welcome-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                        <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                        <path d="M7 21h10"></path>
+                        <path d="M12 3v18"></path>
+                        <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+                    </svg>
+                </div>
+                <h2><span class="hero-pre">Welcome to</span> <span class="gold hero-brand">CyberLaw Bot</span></h2>
+                <p class="welcome-sub">Ask about Criminal Law, PECA, PPC
+                    &amp; CrPC in English or Urdu.</p>
+                <div class="welcome-divider" aria-hidden="true"></div>
+
+                <div class="suggestions" id="suggestions">
+                    <button class="suggestion-card" data-question="What are the penalties for cybercrime under PECA?">
+                        <span class="sug-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </span>
+                        <span class="sug-text">Penalties for cybercrime under PECA?</span>
+                        <span class="sug-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </button>
+                    <button class="suggestion-card" data-question="What is Section 302 of Pakistan Penal Code?">
+                        <span class="sug-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        </span>
+                        <span class="sug-text">What is Section 302 of PPC?</span>
+                        <span class="sug-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </button>
+                    <button class="suggestion-card" data-question="What are the bail provisions under CrPC?">
+                        <span class="sug-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"></path><path d="m16 16 6-6"></path><path d="m8 8 6-6"></path><path d="m9 7 8 8"></path><path d="m21 11-8-8"></path></svg>
+                        </span>
+                        <span class="sug-text">Bail provisions under CrPC?</span>
+                        <span class="sug-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </button>
+                    <button class="suggestion-card" data-question="سائبر کرائم کی سزائیں کیا ہیں؟">
+                        <span class="sug-icon sug-icon-text" aria-hidden="true">PK</span>
+                        <span class="sug-text urdu" dir="rtl">سائبر کرائم کی سزائیں کیا ہیں؟</span>
+                        <span class="sug-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="messages" class="messages"></div>
+        </main>
+
+        <!-- ─── Input area ─── -->
+        <footer id="inputArea" class="input-area">
+            <div class="input-wrapper">
+                <span class="input-sparkle" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path>
+                    </svg>
+                </span>
+                <textarea id="questionInput" placeholder="Ask a legal question…" rows="1" maxlength="2000"
+                    autocomplete="off"></textarea>
+                <button id="micBtn" class="mic-btn" title="Speak your question" aria-label="Speak your question">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                </button>
+                <button id="sendBtn" class="send-btn" title="Send">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+            <p class="disclaimer">
+                <svg class="disclaimer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                <span>CyberLaw Bot provides legal information, not legal advice. Always consult a qualified
+                    lawyer.</span>
+            </p>
+            <nav class="footer-links">
+                <button class="footer-link" data-modal="about">About</button>
+                <span class="footer-sep">&middot;</span>
+                <button class="footer-link" data-modal="privacy">Privacy</button>
+                <span class="footer-sep">&middot;</span>
+                <button class="footer-link" data-modal="terms">Terms</button>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- ─── Modal: About / Privacy / Terms ─── -->
+    <div id="modalOverlay" class="modal-overlay" hidden>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-head">
+                <h2 id="modalTitle">About</h2>
+                <button id="modalClose" class="modal-close" aria-label="Close dialog">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <section class="modal-view" id="view-about" hidden>
+                    <h3>What is CyberLaw Bot?</h3>
+                    <p>An AI assistant that answers questions about Pakistani criminal law &mdash; the
+                        <strong>Code of Criminal Procedure (CrPC)</strong>, <strong>Pakistan Penal Code (PPC)</strong>,
+                        <strong>PECA 2016</strong>, and the <strong>PECA 2025 Amendment</strong> &mdash; in English
+                        and Urdu.</p>
+                    <h3>How it works (Retrieval-Augmented Generation)</h3>
+                    <ol>
+                        <li>Your question is converted into a numerical embedding.</li>
+                        <li>The most relevant statute sections are retrieved from a custom vector index of
+                            <strong>2,373</strong> indexed provisions.</li>
+                        <li>Gemini writes an answer grounded <em>only</em> in those sections and cites them.</li>
+                    </ol>
+                    <p>Every answer shows the exact sources it used, so you can verify each claim.</p>
+                    <h3>Tech stack</h3>
+                    <p>FastAPI backend &middot; Google Gemini (embedding + generation) &middot; a custom NumPy
+                        cosine-similarity vector search. No LangChain and no external vector database &mdash; the
+                        retrieval engine is hand-built. Typical response time is under 5 seconds.</p>
+                    <h3>Important</h3>
+                    <p>CyberLaw Bot provides legal <strong>information</strong>, not legal advice, and does not create
+                        a lawyer&ndash;client relationship. Always confirm with a qualified lawyer and official sources
+                        before acting.</p>
+                </section>
+
+                <section class="modal-view" id="view-privacy" hidden>
+                    <h3>Your privacy</h3>
+                    <ul>
+                        <li><strong>No accounts, no login, no personal data collection.</strong></li>
+                        <li><strong>No PII retention.</strong> Conversations live in server memory for the current
+                            session only and are never written to a database. They disappear on &ldquo;New Chat&rdquo;
+                            or when the server restarts.</li>
+                        <li><strong>No cookies, trackers, or analytics.</strong></li>
+                        <li><strong>Feedback is anonymous.</strong> If you rate an answer, we store only the vote, a
+                            timestamp, and a one-way hash of the question &mdash; never the raw text and never your
+                            identity.</li>
+                    </ul>
+                    <h3>Third parties</h3>
+                    <p>Your question is sent to Google Gemini to generate the answer, subject to Google's terms. We do
+                        not share data with any other third party.</p>
+                    <h3>Please do not share</h3>
+                    <p>Do not enter anyone's private or identifying information (names, CNIC numbers, phone numbers,
+                        addresses). Ask about the law in general terms.</p>
+                </section>
+
+                <section class="modal-view" id="view-terms" hidden>
+                    <h3>Terms of use</h3>
+                    <ul>
+                        <li><strong>Information only &mdash; not legal advice.</strong> Using CyberLaw Bot does not
+                            create a lawyer&ndash;client relationship.</li>
+                        <li><strong>Verify before acting.</strong> Laws and section numbers change; always confirm with
+                            official sources and a qualified lawyer.</li>
+                        <li><strong>No liability.</strong> The tool is provided &ldquo;as is&rdquo; for a hackathon
+                            demonstration. We are not liable for any action taken based on its output.</li>
+                        <li><strong>Lawful use only.</strong> Do not use it to plan or conceal illegal activity, and do
+                            not submit other people's private data.</li>
+                        <li><strong>Emergencies.</strong> If you or someone else is in danger, contact the police (15)
+                            or the relevant helpline immediately &mdash; do not rely on this bot.</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js?v=5"></script>
+</body>
+
+</html>
