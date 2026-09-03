@@ -13,4 +13,4 @@ cb_initial_load.png
 
 # Local-only helper scripts and submission artifacts (never published)
 _*.py
-CyberLaw_Bot_Project_Report.docx
+*.docx
