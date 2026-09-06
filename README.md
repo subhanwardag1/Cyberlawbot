@@ -3,10 +3,10 @@
 <img src="Frontend/logo.png" alt="CyberLaw Bot logo" width="110" align="right">
 
 **CyberLaw Bot** is an AI-powered legal assistant for Pakistan. It answers questions about
-Pakistani criminal law — in **English and Urdu** — and backs every answer with the exact
+Pakistani Cyber laws in **English and Urdu** and backs every answer with the exact
 statute provisions it used, so any claim can be verified against the law itself.
 
-Built for the **Bano Qabil National Hackathon**.
+Built for MY FYP and **Bano Qabil National Hackathon**.
 
 > ⚖️ **Disclaimer:** CyberLaw Bot provides legal *information*, not legal advice.
 > Always consult a qualified lawyer for your specific situation.
